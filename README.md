@@ -2,7 +2,7 @@
 
 <img src="./tools/img/overview.png" width="400" img align="right">
 
-This repository contains the code for the ACL 2020 paper [Neural Generation of Dialogue Response Timings](https://arxiv.org/pdf/1808.10785.pdf).
+This repository contains the code for the ACL 2020 paper [Neural Generation of Dialogue Response Timings](https://arxiv.org/pdf/2005.09128.pdf).
 
 
 Response timing networks (RTNets) are models that are designed to simulate naturalistic response timings in spoken dialogue systems (SDSs). In human conversations, the distribution of a given response timing depends on the semantic content of the response itself. For example, "No" responses are often delayed in comparison to "Yes" responses. The timings are also dependent on the context of the first speaker's turn. For example, speaker turns directly following a backchannel (e.g. "Uh-huh", "Yeah") have been shown to frequently occur in overlap with the backchannel. Humans are sensitive to these timings and they associate different timings with different responses. Inappropriate timings in SDSs can lead to misinterpretations, perceived rudeness, and lower impressions of the naturalness of the system. 
