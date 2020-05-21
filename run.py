@@ -297,36 +297,36 @@ def main():
                 # Run tests after final iteration
                 if scheduler._step_count >= scheduler.milestones[-1]:
                     # load test dataloader
-                    del train_dataset.dataset  # free some RAM
-                    test_dataset = ContDataset(test_dataset_settings_dict)
-                    collate_fn_test = test_dataset.collate_fn
-                    test_dataset.embeds_usr = embeds_usr
-                    test_dataset.embeds_sys = embeds_sys
-                    test_dataset.embeds = embeds
-                    test_dataset.nlp = nlp
-                    test_dataset.sil_tok = sil_tok
-                    test_sampler = MySampler(test_dataset)
-                    test_dataloader = DataLoader(test_dataset, sampler=test_sampler,
-                                                 batch_size=batch_size, collate_fn=collate_fn_test,
-                                                 num_workers=num_data_loader_workers,
-                                                 worker_init_fn=_init_fn)
-                    test_dataset.update_annots_test = test_dataset_settings_dict['update_annots_test']
-                    test_dataloader.dataset.time_out_length = time_out_length
-                    epoch = 0
-                    train_batch_indx = -1
-                    full_test_flag = False
-                    test(model, test_dataloader, full_test_flag,
-                         results_dict, train_batch_indx, epoch)
-                    json.dump(results_dict, open(
-                        naming_dict['fold_name'] + '/results_test.json', 'w'), indent=4)
-                    print('Finished non-sampling test')
-                    full_test_flag = True
-                    model.module.lstm_sets_dict['full_test_flag'] = True
-                    test(model, test_dataloader, full_test_flag,
-                         results_dict, train_batch_indx, epoch)
-                    json.dump(results_dict, open(
-                        naming_dict['fold_name'] + '/results_sampled.json', 'w'), indent=4)
-                    print('Finished sampling test')
+#                     del train_dataset.dataset  # free some RAM
+#                     test_dataset = ContDataset(test_dataset_settings_dict)
+#                     collate_fn_test = test_dataset.collate_fn
+#                     test_dataset.embeds_usr = embeds_usr
+#                     test_dataset.embeds_sys = embeds_sys
+#                     test_dataset.embeds = embeds
+#                     test_dataset.nlp = nlp
+#                     test_dataset.sil_tok = sil_tok
+#                     test_sampler = MySampler(test_dataset)
+#                     test_dataloader = DataLoader(test_dataset, sampler=test_sampler,
+#                                                  batch_size=batch_size, collate_fn=collate_fn_test,
+#                                                  num_workers=num_data_loader_workers,
+#                                                  worker_init_fn=_init_fn)
+#                     test_dataset.update_annots_test = test_dataset_settings_dict['update_annots_test']
+#                     test_dataloader.dataset.time_out_length = time_out_length
+#                     epoch = 0
+#                     train_batch_indx = -1
+#                     full_test_flag = False
+#                     test(model, test_dataloader, full_test_flag,
+#                          results_dict, train_batch_indx, epoch)
+#                     json.dump(results_dict, open(
+#                         naming_dict['fold_name'] + '/results_test.json', 'w'), indent=4)
+#                     print('Finished non-sampling test')
+#                     full_test_flag = True
+#                     model.module.lstm_sets_dict['full_test_flag'] = True
+#                     test(model, test_dataloader, full_test_flag,
+#                          results_dict, train_batch_indx, epoch)
+#                     json.dump(results_dict, open(
+#                         naming_dict['fold_name'] + '/results_sampled.json', 'w'), indent=4)
+#                     print('Finished sampling test')
                     print('DONE')
                     os._exit(0)
                 model.train()
