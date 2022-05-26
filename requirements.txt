@@ -40,6 +40,6 @@ toolz==0.10.0
 torch==1.2.0
 tornado==6.0.4
 tqdm==4.46.0
-ujson==2.0.3
+ujson==5.2.0
 urllib3==1.26.5
 wrapt==1.10.11
