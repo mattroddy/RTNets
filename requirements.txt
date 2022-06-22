@@ -17,7 +17,7 @@ msgpack==0.6.1
 msgpack-numpy==0.4.3.2
 murmurhash==1.0.2
 nltk==3.4.5
-numpy==1.15.4
+numpy==1.22.0
 pandas==1.0.3
 plac==0.9.6
 preshed==2.0.1
